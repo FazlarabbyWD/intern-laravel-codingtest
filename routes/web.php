@@ -16,6 +16,7 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
 
 Route::get('/dashboard', [HomeController::class, 'showDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -26,4 +27,4 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.show');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
